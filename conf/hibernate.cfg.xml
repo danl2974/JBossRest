@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration PUBLIC 
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+    <!-- hibernate dialect -->
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+    
+    <property name="hibernate.connection.driver_class">org.postgresql.xa.PGXADataSource</property>
+    <!-- property name="hibernate.connection.datasource">java:jboss/datasources/postgresDS</property -->
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost/main-db</property>
+    <property name="hibernate.connection.username">dbuser</property>
+    <property name="hibernate.connection.password">nibul7474</property>
+    <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+    
+    <!-- Automatic schema creation (begin) === -->     
+    <!-- <property name="hibernate.hbm2ddl.auto">create</property> -->
+ 
+    
+    <!-- Simple memory-only cache -->
+    <property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+
+     <!-- Enable Hibernate's automatic session context management -->
+     <property name="current_session_context_class">thread</property>
+
+    <!-- ############################################ -->
+    <!-- # mapping files with external dependencies # -->
+    <!-- ############################################ -->
+
+
+    <mapping resource="com/dl/rs/utils/PersistItem.hbm.xml"/>
+
+</session-factory>
+</hibernate-configuration>
